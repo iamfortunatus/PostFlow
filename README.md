@@ -1,0 +1,5 @@
+PostFlow AI is a powerful workflow-driven WordPress plugin developed by UfirstDEV Technologies to automate content creation at scale. Whether you manage a blog, niche website, digital agency, or content-driven business, PostFlow AI enables you to consistently produce high-quality posts with zero manual effort.
+
+Simply upload your list of topics, set your categories, and adjust your preferred posting schedule—PostFlow AI handles the rest, generating and publishing fresh, realistic content in your brand’s tone automatically or on demand.
+
+The plugin features integrated license and subscription validation, monthly usage tracking, flexible time-based triggers, and secure REST communication with your WordPress site. Every article is generated, published, and monitored with precision, making PostFlow AI the ultimate automation tool for WordPress creators seeking speed, scale, and simplicity.
