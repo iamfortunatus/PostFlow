@@ -1,4 +1,4 @@
-/* Example: styles.css */
+/* General Styles */
 .postflow-dashboard-stats {
     background: #f7f7f7;
     padding: 15px;
@@ -17,10 +17,10 @@
 .postflow-button-primary {
     background-color: #0073aa;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -29,8 +29,50 @@
     background-color: #005b7f;
 }
 
+/* Danger Button Style */
+.postflow-button-danger {
+    background-color: #d9534f;  /* Red background */
+    color: white;                /* White text */
+    padding: 10px 15px;          /* Padding for button size */
+    border: none;                /* Remove default border */
+    border-radius: 5px;          /* Rounded corners */
+    font-size: 14px;             /* Font size */
+    cursor: pointer;            /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;  /* Smooth transition for background color */
+}
+
+/* Hover effect for the danger button */
+.postflow-button-danger:hover {
+    background-color: #c9302c;  /* Darker red on hover */
+}
+
+/* Active state for when the button is clicked */
+.postflow-button-danger:active {
+    background-color: #bd362f;  /* Even darker red when pressed */
+    transform: translateY(2px);  /* Slight movement effect to mimic pressing */
+}
+
+/* Focus state for accessibility */
+.postflow-button-danger:focus {
+    outline: 2px solid #f5c6cb;  /* Light border for focus */
+    outline-offset: 2px;          /* Slight offset to ensure visibility */
+}
+
+/* Disabled state for the danger button */
+.postflow-button-danger:disabled {
+    background-color: #e0aebd;  /* Lighter red background to indicate disabled state */
+    color: #6c757d;              /* Dark gray text to indicate it's inactive */
+    cursor: not-allowed;        /* Change cursor to indicate that it's not clickable */
+    opacity: 0.65;               /* Slightly reduce the opacity for a disabled look */
+}
+
+/* Disabled button on hover (not clickable) */
+.postflow-button-danger:disabled:hover {
+    background-color: #e0aebd;  /* Keep the same background on hover when disabled */
+}
+
 .postflow-button-close {
-    background-color: #d9534f;
+    background-color: #17a2b8;
     color: #fff;
     padding: 8px 15px;
     border: none;
@@ -40,9 +82,10 @@
 }
 
 .postflow-button-close:hover {
-    background-color: #c9302c;
+    background-color: #117a8b;
 }
 
+/* Input Fields */
 .postflow-input-text, .postflow-input-select, .postflow-input-file {
     width: 100%;
     padding: 8px;
@@ -78,6 +121,14 @@
     font-weight: bold;
 }
 
+/* Adjusting width for the first column (checkbox column) */
+.postflow-wp-list-table th:first-child, 
+.postflow-wp-list-table td:first-child {
+    width: 50px; /* Adjust the width of the checkbox column */
+    text-align: center; /* Align checkbox to center */
+}
+
+/* Style for buttons in the table */
 .postflow-wp-list-table button {
     padding: 8px 15px;
     font-size: 14px;
@@ -98,14 +149,55 @@
     background-color: #d4edda;
     color: #155724;
     border-color: #c3e6cb;
-    padding: 15px;
+    padding: 10px;
     border-radius: 5px;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.notice-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.notice-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+/* Pagination Styling */
+.postflow-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.notice-success.is-dismissible {
-    padding-right: 45px;
-    position: relative;
+.postflow-pagination a {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #0073aa;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.postflow-pagination a:hover {
+    background-color: #005b7f;
+}
+
+.postflow-pagination .current {
+    background-color: #005b7f;
 }
 
 /* Modal Styling */
@@ -200,4 +292,150 @@
 /* Modal Overlay - Hide and Show */
 .postflow-modal.show {
     display: block;
+}
+
+/* WordPress Version Fix (Prevent overlap) */
+#wpfooter {
+    position: relative;
+    margin-top: 100px; /* Pushes the footer down to avoid overlap */
+}
+
+/* General Wrapper */
+.postflow_wrap {
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    max-width: 700px;
+    /* margin: 0 auto; */
+    margin-top: 20px;
+}
+
+/* Header */
+.postflow_h1 {
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Table Styling */
+.postflow_table {
+    width: 100%;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.postflow_table th, .postflow_table td {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.postflow_label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Input Fields */
+.postflow_input_text,
+.postflow_input_password,
+.postflow_select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-top: 5px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.postflow_input_text:focus,
+.postflow_input_password:focus,
+.postflow_select:focus {
+    border-color: #0073aa;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Custom Duration Fields */
+.postflow_custom_duration_fields {
+    margin-top: 10px;
+}
+
+.postflow_custom_duration_fields {
+    display: none;
+}
+
+/* .postflow_custom_duration {
+    width: 60%;
+    display: none;
+} */
+
+.postflow_table input[type="number"],
+.postflow_table select {
+    width: 100%;
+}
+
+/* .postflow_select {
+    width: 100%;
+    display: inline-block;
+} */
+
+/* Submit Button */
+.postflow_submit_button {
+    background-color: #0073aa;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.postflow_submit_button:hover {
+    background-color: #005b7f;
+}
+
+/* Disabled Submit Button */
+.postflow_submit_button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Select Input Styles */
+.postflow_select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .postflow_table th, .postflow_table td {
+        padding: 10px;
+    }
+
+    .postflow_h1 {
+        font-size: 28px;
+    }
+
+    .postflow_submit_button {
+        padding: 10px;
+    }
 }

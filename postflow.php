@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: PostFlow
+Plugin Name: PostFlow AI
 Plugin URI: https://www.ufirstdev.com/postflow
-Description: A plugin to automate content generation via n8n workflows.
+Description: PostFlow AI is a powerful workflow-driven WordPress plugin developed by UfirstDEV Technologies to automate content creation at scale. Whether you manage a blog, niche website, digital agency, or content-driven business, PostFlow AI enables you to consistently produce high-quality posts with zero manual effort.
 Version: 1.0.0
 Author: UfirstDEV Technologies
 Author URI: https://www.ufirstdev.com
@@ -79,6 +79,9 @@ function postflow_create_tables() {
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql_topics);
     dbDelta($sql_settings);
+
+    // Insert default settings into the postflow_settings table
+    postflow_insert_default_settings($table_name_settings);
 }
 
 register_activation_hook(__FILE__, 'postflow_create_tables');
@@ -105,4 +108,36 @@ function postflow_drop_tables() {
 
 register_deactivation_hook(__FILE__, 'postflow_drop_tables');
 
+// Insert default settings into the custom settings table
+function postflow_insert_default_settings($table_name_settings) {
+    global $wpdb;
 
+    // Default settings to insert
+    $default_settings = array(
+        'postflow_license_key' => '',
+        'postflow_wp_username' => '',
+        'postflow_trigger_interval' => 'hourly',
+        'postflow_custom_duration' => 0,
+        'postflow_custom_duration_unit' => 'minutes',
+        'postflow_application_password' => '',
+        'postflow_wp_url' => home_url(),
+    );
+
+    // Insert each setting if not already present
+    foreach ($default_settings as $setting_name => $setting_value) {
+        // Check if the setting already exists
+        $existing_setting = $wpdb->get_var($wpdb->prepare("SELECT ID FROM $table_name_settings WHERE setting_name = %s", $setting_name));
+
+        if (!$existing_setting) {
+            // Insert default setting if it doesn't exist
+            $wpdb->insert(
+                $table_name_settings,
+                array(
+                    'setting_name' => $setting_name,
+                    'setting_value' => $setting_value
+                ),
+                array('%s', '%s')
+            );
+        }
+    }
+}

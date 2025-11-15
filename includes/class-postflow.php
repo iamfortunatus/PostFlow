@@ -36,8 +36,8 @@ class PostFlow {
     // Add custom admin menu and submenus
     public function add_postflow_menu() {
         add_menu_page( 
-            'PostFlow Dashboard',         // Page title
-            'PostFlow',                   // Menu title
+            'PostFlow AI Dashboard',         // Page title
+            'PostFlow AI',                   // Menu title
             'manage_options',             // Capability
             'postflow_dashboard',         // Menu slug
             array( $this->dashboard, 'render_dashboard_page' ), // Function to render the page
